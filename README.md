@@ -17,10 +17,11 @@
 * cat urls.txt | grep -iE '.js'| grep -ivE '.json' | sort -u | tee js.txt
 # проверяет баги в js файлах 
 * nuclei -t /nuclei-templates/http/exposures/ -l js.txt -o jsBugs.txt
-# проверяет xss 
+# проверяет xss tool [dalfox](https://github.com/hahwul/dalfox)
 * cat urls.txt | uro | gf xss > xss.txt
 * cat param.txt | kxss
 * paramspider -d booking.com
+* dalfox file xss.txt  | tee XSSvulnerable.txt
 # проверяет lfi 
 * cat aliveSubs.txt | gau | uro | gf lfi | tee lfi.txt
 * nuclei -l target.txt -tags lfi
