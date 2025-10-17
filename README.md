@@ -1,5 +1,5 @@
 * echo booking.com > target.txt
-# найдет субдомены _https://github.com/projectdiscovery/subfinder_
+# найдет субдомены [текст_который_виден](https://github.com/projectdiscovery/subfinder)
 * subfinder -dL target.txt -all --recursive -o subs.txt
 # оставляет только живые 🐛💵
 * cat subs.txt | httpx -o aliveSubs.txt
