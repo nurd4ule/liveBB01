@@ -8,7 +8,7 @@
 * cat subs.txt | waybackurls | tee urls.txt
 # перверяет субдомен тейковер среди живых доменов
 * nuclei -t /nuclei-templates/takovers/ -l aliveSubs.txt
-# template [httpx](https://github.com/projectdiscovery/fuzzing-templates) 
+# template [fuzzing-templates](https://github.com/projectdiscovery/fuzzing-templates) 
 * nuclei -l urls.txt -t /nuclei-templates/fuzzing-templates/
 # проверяет на cve, exposure, vuln 
 * nuclei -list aliveSubs.txt -t /nuclei-templates/vulnerabilities -t /nuclei-templates/cves -t /nuclei-templates/exposures
