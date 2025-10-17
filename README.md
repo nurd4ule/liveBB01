@@ -1,16 +1,16 @@
 * echo booking.com > target.txt
 # найдет субдомены 
 * subfinder -dL target.txt -all --recursive -o subs.txt
-# оставляем только живые 
+# оставляет только живые 
 * cat subs.txt | httpx -o aliveSubs.txt
- _________________________________________ вытащить все юрл с субдоменов _________________________________________
+# вытащить все юрл с субдоменов 
 * cat subs.txt | waybackurls | tee urls.txt
- _________________________________________ перверяет субдомен тейковер среди живых доменов _________________________________________
+# перверяет субдомен тейковер среди живых доменов
 * nuclei -t /nuclei-templates/takovers/ -l aliveSubs.txt
 * nuclei -l urls.txt -t /nuclei-templates/fuzzing-templates/
-_________________________________________ проверяет на cve, exposure, vuln _________________________________________
+# проверяет на cve, exposure, vuln 
 * nuclei -list aliveSubs.txt -t /nuclei-templates/vulnerabilities -t /nuclei-templates/cves -t /nuclei-templates/exposures
-  _________________________________________ из юрл извлекаем те юрл у которых есть параметры и js файлы _________________________________________
+# из юрл извлекаем те юрл у которых есть параметры и js файлы 
 * cat urls.txt | grep "=" | tee param.txt
 * cat urls.txt | grep -iE '.js'| grep -ivE '.json' | sort -u | tee js.txt
   _________________________________________ проверяет баги в js файлах _________________________________________
