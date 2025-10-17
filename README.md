@@ -1,10 +1,7 @@
-# liveBB01
-live bug bounty 01
-
 * echo booking.com > target.txt
 # найдет субдомены 
 * subfinder -dL target.txt -all --recursive -o subs.txt
-#_________________________________________ оставляем только живые _________________________________________
+# оставляем только живые 
 * cat subs.txt | httpx -o aliveSubs.txt
  _________________________________________ вытащить все юрл с субдоменов _________________________________________
 * cat subs.txt | waybackurls | tee urls.txt
