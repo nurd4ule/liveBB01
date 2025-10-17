@@ -1,7 +1,8 @@
+🐛💵
 * echo booking.com > target.txt
 # найдет субдомены tool [subfinder](https://github.com/projectdiscovery/subfinder)
 * subfinder -dL target.txt -all --recursive -o subs.txt
-# оставляет только живые 🐛💵
+# оставляет только живые  tool [httpx](https://github.com/projectdiscovery/httpx)
 * cat subs.txt | httpx -o aliveSubs.txt
 # вытащить все юрл с субдоменов 
 * cat subs.txt | waybackurls | tee urls.txt
