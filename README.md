@@ -10,7 +10,7 @@
 * nuclei -t /nuclei-templates/takovers/ -l aliveSubs.txt
 # template [fuzzing-templates](https://github.com/projectdiscovery/fuzzing-templates) 
 * nuclei -l urls.txt -t /nuclei-templates/fuzzing-templates/
-# проверяет на cve, exposure, vuln 
+# проверяет на cve, exposure, vuln template [nuclei-templates](https://github.com/projectdiscovery/nuclei-templates) 
 * nuclei -list aliveSubs.txt -t /nuclei-templates/vulnerabilities -t /nuclei-templates/cves -t /nuclei-templates/exposures
 # из юрл извлекаем те юрл у которых есть параметры и js файлы 
 * cat urls.txt | grep "=" | tee param.txt
