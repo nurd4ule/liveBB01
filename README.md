@@ -4,7 +4,7 @@
 * subfinder -dL target.txt -all --recursive -o subs.txt
 # оставляет только живые  tool [httpx](https://github.com/projectdiscovery/httpx)
 * cat subs.txt | httpx -o aliveSubs.txt
-# вытащить все юрл с субдоменов tool [httpx](https://github.com/tomnomnom/waybackurls)
+# вытащить все юрл с субдоменов tool [waybackurls](https://github.com/tomnomnom/waybackurls)
 * cat subs.txt | waybackurls | tee urls.txt
 # перверяет субдомен тейковер среди живых доменов
 * nuclei -t /nuclei-templates/takovers/ -l aliveSubs.txt
